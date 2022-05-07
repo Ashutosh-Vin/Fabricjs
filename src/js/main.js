@@ -24,13 +24,10 @@ function addFileOnCanvas(e) {
   canvas.on('mouse:wheel', zoomImage);
 
   function zoomImage(opt){
-    var target = canvas.findTarget(opt);
-    console.log('target : ',target);
-    
+    var target = canvas.findTarget(opt);    
     var delta = opt.e.deltaY;
     var zoom = canvas.getZoom();
-    console.log('deltay :',delta)
-    console.log('zoom :',canvas.getZoom())
+    
     zoom *= 0.999 ** delta;
     if((delta > 0) && (zoom < 1)){
       zoom = 1;
