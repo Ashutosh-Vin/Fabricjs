@@ -31,11 +31,15 @@ function addFileOnCanvas(e) {
     zoom *= 0.999 ** delta;
     if((delta > 0) && (zoom < 1)){
       zoom = 1;
+      canvas.setViewportTransform([1,0,0,1,0,0])
     }
     canvas.zoomToPoint(
       new fabric.Point(opt.e.offsetX, opt.e.offsetY),
       zoom,
   );
+    if(zoom == 1){
+      //canvas.setViewportTransform([1,0,0,1,0,0])
+    }
     //canvas.setZoom(zoom);
     opt.e.preventDefault();
     opt.e.stopPropagation();
